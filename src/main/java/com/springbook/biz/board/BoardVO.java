@@ -6,7 +6,7 @@ import java.sql.Date;
 public class BoardVO {
 	private int seq;
 	private String title;
-	private String wirter;
+	private String writer;
 	private String content;
 	private Date regDate;
 	private int cnt;
@@ -31,13 +31,13 @@ public class BoardVO {
 	}
 
 
-	public String getWirter() {
-		return wirter;
+	public String getWriter() {
+		return writer;
 	}
 
 
-	public void setWirter(String wirter) {
-		this.wirter = wirter;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 
@@ -73,7 +73,7 @@ public class BoardVO {
 
 	@Override
 	public String toString() {
-		return "BoardVO [seq=" + seq + ", title=" + title + ", wirter=" + wirter + ", content=" + content + ", regDate="
+		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
 				+ regDate + ", cnt=" + cnt + "]";
 	}
 	

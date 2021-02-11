@@ -40,7 +40,7 @@ public class BoardDAO extends JdbcDaoSupport {
 	// 글 등록
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
-		getJdbcTemplate().update(BOARD_INSERT, vo.getTitle(), vo.getWirter(), vo.getContent());
+		getJdbcTemplate().update(BOARD_INSERT, vo.getTitle(), vo.getWriter(), vo.getContent());
 		/*
 		 * try { conn = JDBCUtil.getConnection(); stmt =
 		 * conn.prepareStatement(BOARD_INSERT); stmt.setString(1, vo.getTitle());
