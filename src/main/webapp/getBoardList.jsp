@@ -1,17 +1,11 @@
 <%@page import="java.util.List"%>
-<%@page import="com.springbook.biz.board.impl.BoardDAO"%>
 <%@page import="com.springbook.biz.board.BoardVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset="EUC-KR"%>
 
 <%
-	//1. 사용자 입력 정보 추출(검색 기능은 나중에 구현)
-	//2. DB 연동 처리
-	BoardVO vo = new BoardVO();
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardVO> boardList = boardDAO.getBoardList(vo);
+	// 세션에 저장된 글 목록을 꺼낸다.
+	List<BoardVO> boardList = (List)session.getAttribute("boardList");
 
-	//3. 응답 화면 구성
 %>
 
 <!DOCTYPE html>
@@ -24,7 +18,7 @@
 	<center>
 		<h1>글 목록</h1>
 		<h3>
-			테스트님 환영합니다...<a href="logout_proc.jsp">Log-out</a>
+			테스트님 환영합니다...<a href="logout.do">Log-out</a>
 		</h3>
 
 		<!-- 검색 시작 -->
@@ -54,8 +48,7 @@
 			%>
 			<tr>
 				<td><%= board.getSeq() %>
-				<td align="left"><a
-					href="getBoard.jsp?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
+				<td align="left"><a href="getBoard.do?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
 				<td><%= board.getWriter() %></td>
 				<td><%= board.getRegDate() %></td>
 				<td><%= board.getCnt() %></td>

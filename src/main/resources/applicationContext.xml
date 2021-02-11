@@ -14,8 +14,8 @@
 		http://www.springframework.org/schema/ts
 		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-<context:component-scan base-package="com.springbook.biz"></context:component-scan> 
-
+<!-- <context:component-scan base-package="com.springbook.biz"></context:component-scan> 
+ -->
 <!-- <bean id="log" class="com.springbook.biz.common.LogAdvice"></bean> -->
 <!-- 
 <aop:config>
@@ -29,36 +29,36 @@
 <!-- DataSource 설정 -->
 <!-- <context:property-placeholder location="classpath:config/database.properties"/> -->
 
-<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	<property name="driverClassName" value="org.h2.Driver"/>
 	<property name="url" value="jdbc:h2:tcp://localhost/~/test"/>
 	<property name="username" value="sa"/>
 	<property name="password" value=""/>
 </bean>
-
+ -->
 <!-- Spring JDBC 설정 -->
-<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 	<property name="dataSource" ref="dataSource"/>
 </bean>  
-
+ -->
 <!-- Transaction 설정 -->
-<bean id="txManager"
+<!-- <bean id="txManager"
 	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="dataSource"></property>
-</bean>
+</bean> -->
 
-<tx:advice id="txAdvice" transaction-manager="txManager">
+<!-- <tx:advice id="txAdvice" transaction-manager="txManager">
 	<tx:attributes>
 		<tx:method name="get*" read-only="true"/>
 		<tx:method name="*"/>
 	</tx:attributes>
-</tx:advice>
+</tx:advice> -->
 
-<aop:config>
+<!-- <aop:config>
 	<aop:pointcut id="txPointcut" expression="execution(* com.springbook.biz..*(..))" />
 
 	<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
-</aop:config>
+</aop:config> -->
 
 <!-- <bean id="userService" class="com.springbook.biz.user.impl.UserServiceImpl">
 	<property name="userDAO" ref="userDAO"/>
